@@ -13,3 +13,10 @@ view information about park = show earnings in a time frame - Saabiq
 
 Specifics:
     manage = ability to delete, ability to edit, etc.
+    
+To do:
+Website
+CRUD Matrix
+Incorporate trigger/stored procedure/function
+List of forms
+Presentation
