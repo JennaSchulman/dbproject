@@ -4,7 +4,7 @@ Work Assignments:
 homepage - Jenna
 view and manage ticketTypes
 view and manage rides
-view and manage concessions
+view and manage concessions - Jenna
 view and manage products
 view and manage employees
 view and manage locations
