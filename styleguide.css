@@ -55,6 +55,7 @@ main {
     width: 1000px;
     column-gap: 100px;
     row-gap: 75px;
+    justify-content: center;
 }
 
 .button-flex button {
