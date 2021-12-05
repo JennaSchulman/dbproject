@@ -22,56 +22,58 @@
         </header>
         <main>
             <h1 class="start">Add Concession</h1>
-            <form>
-                <label for="ncon">Name: </label>
-                <input type="text" name="name" id="ncon">
-                <br>
-                <label for="opCostcon">Operation Cost: </label>
-                <input type="text" name="opCost" id="opCostcon">
-                <br>
-                <label for="loccon">Location: </label>
-                <select name="loc" id="loccon">
+            <div class="addForm">
+                <form>
+                    <label for="ncon">Name: </label>
+                    <input type="text" name="name" id="ncon">
+                    <br>
+                    <label for="opCostcon">Operation Cost: </label>
+                    <input type="text" name="opCost" id="opCostcon">
+                    <br>
+                    <label for="loccon">Location: </label>
+                    <select name="loc" id="loccon">
 
-                <?php 
+                    <?php 
 
-                    require('database.php');
+                        require('database.php');
 
-                    $getLocInfo = "SELECT * FROM location";
-                    $locations = $db->query($getLocInfo);
+                        $getLocInfo = "SELECT * FROM location";
+                        $locations = $db->query($getLocInfo);
 
-                    foreach($locations as $location) {
-                        $id = $location['locationID'];
-                        $name = $location['name'];
+                        foreach($locations as $location) {
+                            $id = $location['locationID'];
+                            $name = $location['name'];
 
-                        echo "<option value=$id>$name</option>";
-                    }
+                            echo "<option value=$id>$name</option>";
+                        }
 
                 
 
-                    echo "</select>
-                    <br>
-                    <label for=empcon>Employee:</label>
-                    <select name=emp id=empcon></select>
-                    <br>
-                    <fieldset>
-                        <legend>Select Products to Add:</legend>";
+                        echo "</select>
+                        <br>
+                        <label for=empcon>Employee:</label>
+                        <select name=emp id=empcon></select>
+                        <br>
+                        <fieldset>
+                            <legend>Select Products to Add:</legend>";
 
-                    $getProdInfo = "SELECT * FROM products";
-                    $products = $db->query($getProdInfo);
+                            $getProdInfo = "SELECT * FROM products";
+                            $products = $db->query($getProdInfo);
 
-                    foreach($products as $product) {
-                        $pid = $product['productID'];
-                        $pname = $product['productName'];
+                            foreach($products as $product) {
+                                $pid = $product['productID'];
+                                $pname = $product['productName'];
 
-                        echo "<input type=checkbox value=$pid id='$pid newp'>
-                            <label for='$pid newp'>$pname</label>
-                            <br>";
-                    }
+                                echo "<input type=checkbox value=$pid id='$pid newp'>
+                                    <label for='$pid newp'>$pname</label>
+                                    <br>";
+                            }
 
-                ?>
-                </fieldset>
-                <button type="submit">Add Concession</button>
-            </form>
+                    ?>
+                    </fieldset>
+                    <button type="submit">Add Concession</button>
+                </form>
+            </div>
         </main>
     </body>
 </html>
