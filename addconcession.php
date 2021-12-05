@@ -64,7 +64,8 @@
                         $pname = $product['productName'];
 
                         echo "<input type=checkbox value=$pid id='$pid newp'>
-                            <label for='$pid newp'>$pname</label>";
+                            <label for='$pid newp'>$pname</label>
+                            <br>";
                     }
 
                 ?>
