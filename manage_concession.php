@@ -44,11 +44,18 @@
                 $getAllLocInfo = "SELECT * FROM location WHERE locationID <> $lid";
                 $locations = $db->query($getAllLocInfo);
 
+                //How do we want to do this????
                 $getEmpInfo = "SELECT employeeName FROM employees WHERE employeeID = $eid";
                 $employee = $db->query($getEmpInfo);
                 $em = $employee->fetch_assoc();
 
                 $e = $em['employeeName'];
+
+                $getProdInfo = "SELECT p.productName, s.numSold FROM products p, productamountsold s WHERE p.productID = s.productID AND s.concessionID = $concessionID";
+                $products = $db->query($getProdInfo);
+
+                $getNotProdInfo = "SELECT p.productName, p.productID FROM products p WHERE p.productID NOT IN (SELECT s.productID FROM productamountsold s WHERE s.concessionID = $concessionID)";
+                $notproducts = $db->query($getNotProdInfo);   
 
                 echo "<h1 class=start>Managing: $name</h1>
                         <div class=manageForm>
@@ -74,6 +81,40 @@
                                 <label for=emp class=clabel>Current Employee: <span class=empname>$e</span> </label>
                                 <br>
                                 <input type=text name=empname>
+                                <br>
+                                <label for=pr class=clabel>Current Products Sold here:</label>
+                                <br>
+                                <table class=prodtable>
+                                    <tr>
+                                        <th> Remove </th>
+                                        <th> Product </th>
+                                        <th> Amount Sold </th>
+                                    </tr>";
+                                    foreach($products as $prod) {
+                                        $p = $prod['productName'];
+                                        $sold = $prod['numSold'];
+
+                                        echo "<tr>
+                                                <td><form action=remove_prodfromcon.php method=post> <button type=submit class=tbuttond> Delete </button> </form> </td>
+                                                <td>$p</td>
+                                                <td> $sold </td>
+                                       </tr>";  
+                                    }
+
+                                echo "</table>
+                                <fieldset>
+                                    <legend>Add Products:</legend>";
+
+                                    foreach($notproducts as $nprod) {
+                                        $pid = $nprod['productID'];
+                                        $npname = $nprod['productName'];
+
+                                        echo "<input type=checkbox name=addprod value=$pid id='$pid addp'>
+                                            <label for='$pid addp'>$npname</label>
+                                            <br>";
+                                    }
+                                
+                                echo "</fieldset>    
                                 <br>
                                 <button type=submit>Submit Changes</button>
                             </form>

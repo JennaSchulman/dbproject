@@ -23,14 +23,14 @@
         <main>
             <h1 class="start">Add Concession</h1>
             <form>
-                <label for="name">Name: </label>
-                <input type="text" name="name">
+                <label for="ncon">Name: </label>
+                <input type="text" name="name" id="ncon">
                 <br>
-                <label for="opCost">Operation Cost: </label>
-                <input type="text" name="opCost">
+                <label for="opCostcon">Operation Cost: </label>
+                <input type="text" name="opCost" id="opCostcon">
                 <br>
-                <label for="loc">Location: </label>
-                <select name="loc">
+                <label for="loccon">Location: </label>
+                <select name="loc" id="loccon">
 
                 <?php 
 
@@ -46,13 +46,29 @@
                         echo "<option value=$id>$name</option>";
                     }
 
-                ?>
+                
 
-                </select>
-                <br>
-                <label for="emp">Employee:</label>
-                <select name="emp"></select>
-                <br>
+                    echo "</select>
+                    <br>
+                    <label for=empcon>Employee:</label>
+                    <select name=emp id=empcon></select>
+                    <br>
+                    <fieldset>
+                        <legend>Select Products to Add:</legend>";
+
+                    $getProdInfo = "SELECT * FROM products";
+                    $products = $db->query($getProdInfo);
+
+                    foreach($products as $product) {
+                        $pid = $product['productID'];
+                        $pname = $product['productName'];
+
+                        echo "<input type=checkbox value=$pid id='$pid newp'>
+                            <label for='$pid newp'>$pname</label>";
+                    }
+
+                ?>
+                </fieldset>
                 <button type="submit">Add Concession</button>
             </form>
         </main>

@@ -157,9 +157,9 @@ button:hover {
     /*text-align: center;*/
 }
 
-/*.manageForm label{
-    padding-bottom: 20px;
-}*/
+.manageForm label{
+    margin-bottom: 20px;
+}
 
 /*.tlabel {
     display: inline-block;
