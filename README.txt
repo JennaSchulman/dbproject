@@ -16,7 +16,7 @@ Specifics:
     
 To do:
 Website
-CRUD Matrix
+CRUD Matrix - Jenna
 Incorporate trigger/stored procedure/function
 List of forms
 Presentation
