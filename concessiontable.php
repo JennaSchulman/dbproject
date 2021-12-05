@@ -5,7 +5,6 @@ require('database.php');
 echo "<table class=results>
         <tr>
             <th> Remove </th>
-            <th> ID </th>
             <th> Concession Name </th>
             <th> Location </th>
             <th> Operation Cost </th>
@@ -28,7 +27,6 @@ if ($concession->num_rows > 0) {
 
         echo "<tr>
                     <td><form action=remove_concession.php method=post> <button type=submit class=tbuttond> Delete </button> </form> </td>
-                    <td id=id>$id</td>
                     <td> $name </td>
                     <td> $location </td>
                     <td> $opcost </td>
