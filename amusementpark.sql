@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 04, 2021 at 08:55 PM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 8.0.9
+-- Host: 127.0.0.1
+-- Generation Time: Dec 06, 2021 at 01:54 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,9 +40,9 @@ CREATE TABLE `concessions` (
 --
 
 INSERT INTO `concessions` (`location`, `concessionName`, `concessionID`, `operationCost`, `employeeID`) VALUES
-(8, 'all about burgers', 1, 1980, 1),
-(8, 'pretty fry for an amusement park guy', 2, 1250, 6),
-(4, 'freaky frankfurters', 3, 870, 33),
+(8, 'All About Burgers', 1, 1980, 1),
+(8, 'Pretty Fry for an Amusement Park Guy', 2, 1250, 6),
+(4, 'Freaky Frankfurters', 3, 870, 33),
 (6, 'over the moon shakes', 4, 1750, 37),
 (9, 'mom\'s spaghetti', 5, 1900, 25),
 (2, 'davy jones\'s', 6, 1500, 12),
@@ -68,52 +68,53 @@ INSERT INTO `concessions` (`location`, `concessionName`, `concessionID`, `operat
 CREATE TABLE `employees` (
   `employeeID` int(11) NOT NULL,
   `salary` float NOT NULL DEFAULT 0,
-  `employeeName` varchar(100) DEFAULT NULL
+  `employeeName` varchar(100) DEFAULT NULL,
+  `is_assigned` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`employeeID`, `salary`, `employeeName`) VALUES
-(1, 9, 'John Smith\r'),
-(2, 7, 'James Robert\r'),
-(3, 11, 'Mary Bright\r'),
-(4, 9, 'Joseph Thomas\r'),
-(5, 9, 'Karen Richard\r'),
-(6, 8, 'Daniel Matthews\r'),
-(7, 7, 'Phineas Flynn\r'),
-(8, 11, 'Ferb Fletcher\r'),
-(9, 8, 'Heinz Doofenshmirtz\r'),
-(10, 8, 'Vanessa Doofenshmirtz\r'),
-(11, 8, 'Candance Flynn\r'),
-(12, 9, 'Major Monogram\r'),
-(13, 8, 'Dipper Pines\r'),
-(14, 7, 'Mabel Pines\r'),
-(15, 10, 'Carly Shay\r'),
-(16, 11, 'Spencer Shay\r'),
-(17, 10, 'Sam Puckett\r'),
-(18, 8, 'Freddie Benson\r'),
-(19, 9, 'Harry Potter\r'),
-(20, 11, 'Hermione Granger\r'),
-(21, 7, 'Ron Weasley\r'),
-(22, 11, 'Fred Weasley\r'),
-(23, 10, 'George Weasley\r'),
-(24, 9, 'Percy Weasley\r'),
-(25, 8, 'Ginny Weasley\r'),
-(26, 8, 'Luna Lovegood\r'),
-(27, 10, 'Neville Longbottom\r'),
-(28, 11, 'Dolores Umbridge\r'),
-(29, 11, 'Albus Dombledore\r'),
-(30, 10, 'Lily Potter\r'),
-(31, 9, 'James Potter\r'),
-(32, 9, 'Sirius Black\r'),
-(33, 8, 'Peter Pettigrew\r'),
-(34, 7, 'Remus Lupin\r'),
-(35, 9, 'Draco Malfoy\r'),
-(36, 9, 'Rubeus Hagrid\r'),
-(37, 8, 'Severus Snape\r'),
-(38, 8, 'Minerva McGonagall');
+INSERT INTO `employees` (`employeeID`, `salary`, `employeeName`, `is_assigned`) VALUES
+(1, 9, 'John Smith\r', 1),
+(2, 7, 'James Robert\r', 1),
+(3, 11, 'Mary Bright\r', 1),
+(4, 9, 'Joseph Thomas\r', 1),
+(5, 9, 'Karen Richard\r', 1),
+(6, 8, 'Daniel Matthews\r', 1),
+(7, 7, 'Phineas Flynn\r', 1),
+(8, 11, 'Ferb Fletcher\r', 1),
+(9, 8, 'Heinz Doofenshmirtz\r', 1),
+(10, 8, 'Vanessa Doofenshmirtz\r', 1),
+(11, 8, 'Candance Flynn\r', 1),
+(12, 9, 'Major Monogram\r', 1),
+(13, 8, 'Dipper Pines\r', 1),
+(14, 7, 'Mabel Pines\r', 1),
+(15, 10, 'Carly Shay\r', 1),
+(16, 11, 'Spencer Shay\r', 1),
+(17, 10, 'Sam Puckett\r', 1),
+(18, 8, 'Freddie Benson\r', 1),
+(19, 9, 'Harry Potter\r', 1),
+(20, 11, 'Hermione Granger\r', 1),
+(21, 7, 'Ron Weasley\r', 1),
+(22, 11, 'Fred Weasley\r', 1),
+(23, 10, 'George Weasley\r', 1),
+(24, 9, 'Percy Weasley\r', 1),
+(25, 8, 'Ginny Weasley\r', 1),
+(26, 8, 'Luna Lovegood\r', 1),
+(27, 10, 'Neville Longbottom\r', 1),
+(28, 11, 'Dolores Umbridge\r', 1),
+(29, 11, 'Albus Dombledore\r', 1),
+(30, 10, 'Lily Potter\r', 1),
+(31, 9, 'James Potter\r', 1),
+(32, 9, 'Sirius Black\r', 1),
+(33, 8, 'Peter Pettigrew\r', 1),
+(34, 7, 'Remus Lupin\r', 1),
+(35, 9, 'Draco Malfoy\r', 1),
+(36, 9, 'Rubeus Hagrid\r', 1),
+(37, 8, 'Severus Snape\r', 1),
+(38, 8, 'Minerva McGonagall', 1);
 
 -- --------------------------------------------------------
 

@@ -44,12 +44,14 @@
                 $getAllLocInfo = "SELECT * FROM location WHERE locationID <> $lid";
                 $locations = $db->query($getAllLocInfo);
 
-                //How do we want to do this????
                 $getEmpInfo = "SELECT employeeName FROM employees WHERE employeeID = $eid";
                 $employee = $db->query($getEmpInfo);
                 $em = $employee->fetch_assoc();
 
                 $e = $em['employeeName'];
+
+                $getNonEmpInfo = "SELECT employeeName, employeeID FROM employees WHERE is_assigned = 0";
+                $nemployee = $db->query($getNonEmpInfo);
 
                 $getProdInfo = "SELECT p.productName, s.numSold, p.productID FROM products p, productamountsold s WHERE p.productID = s.productID AND s.concessionID = $concessionID";
                 $products = $db->query($getProdInfo);
