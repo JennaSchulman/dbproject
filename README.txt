@@ -17,6 +17,6 @@ Specifics:
 To do:
 Website
 CRUD Matrix - 
-Incorporate trigger/stored procedure/function
+Incorporate trigger/stored procedure/function - Stephanie
 List of forms
 Presentation
