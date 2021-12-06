@@ -81,9 +81,22 @@
                                 echo "</select>
                                 <br>
                                 <label for=emp class=clabel>Current Employee: <span class=empname>$e</span> </label>
-                                <br>
-                                <input type=text name=empname>
-                                <br>
+                                <br>";
+                                
+                                if($nemployee->num_rows > 0) {
+                                    echo "<select name=aemp>";
+                                    foreach($nemployee as $nemp) {
+                                        $neid = $nemp['employeeID'];
+                                        $nempn = $nemp['employeeName'];
+
+                                        echo"<option value=$neid>$nempn</option>";
+                                    }
+                                    echo "</select>";
+                                } else {
+                                    echo "<p>0 employees not assigned<p>";
+                                }
+
+                                echo "<br>
                                 <label for=pr class=clabel>Current Products Sold here:</label>
                                 <br>
                                 <table class=prodtable>
