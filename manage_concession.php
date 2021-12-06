@@ -51,7 +51,7 @@
 
                 $e = $em['employeeName'];
 
-                $getProdInfo = "SELECT p.productName, s.numSold FROM products p, productamountsold s WHERE p.productID = s.productID AND s.concessionID = $concessionID";
+                $getProdInfo = "SELECT p.productName, s.numSold, p.productID FROM products p, productamountsold s WHERE p.productID = s.productID AND s.concessionID = $concessionID";
                 $products = $db->query($getProdInfo);
 
                 $getNotProdInfo = "SELECT p.productName, p.productID FROM products p WHERE p.productID NOT IN (SELECT s.productID FROM productamountsold s WHERE s.concessionID = $concessionID)";
@@ -89,15 +89,18 @@
                                         <th> Remove </th>
                                         <th> Product </th>
                                         <th> Amount Sold </th>
+                                        <th> Add </th>
                                     </tr>";
                                     foreach($products as $prod) {
                                         $p = $prod['productName'];
                                         $sold = $prod['numSold'];
+                                        $prodid = $prod['productID'];
 
                                         echo "<tr>
                                                 <td><form action=remove_prodfromcon.php method=post> <button type=submit class=tbuttond> Delete </button> </form> </td>
                                                 <td>$p</td>
                                                 <td> $sold </td>
+                                                <td> <form method=post> <input type=hidden value=$prodid><input type=text size=7> </form> </td>
                                        </tr>";  
                                     }
 
