@@ -19,8 +19,11 @@ if ($locations->num_rows > 0) {
         $name = $location['name'];
 
         echo "<tr>
-                    <td><form action=\"removelocation.php\" method=\"POST\">
-						<input type=hidden value=\"$id\" name=\"locID\" id=\"locID\"></input>
+                    <td><form action=\"remove.php\" method=\"POST\">
+						<input type=hidden value=\"$id\" name=\"ID\" id=\"ID\"></input>
+						<input type=hidden value=\"location\" name=\"tablename\"></input>
+						<input type=hidden value=\"locationID\" name=\"constraint\"></input>
+						<input type=hidden value=\"locations.php\" name=\"previous\"> </input>
 						<input type='submit' class=tbuttond value='Delete'></input> 
 						</form> 
 					</td>
