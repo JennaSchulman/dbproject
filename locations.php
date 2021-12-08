@@ -21,31 +21,25 @@
             </div>
         </header>
         <main>
-            <h1 class="start">Add Location</h1>
-            <div class="addForm" method="POST" novalidate>
+            <h1 class="start">Locations Management</h1>
+
+			<div class="contable">
+            <?php include('locationstable.php');?>
+            </div>
+			<br>
+			<br>
+			 <div class="addForm">
                 <form action="addlocation.php" method="POST" novalidate>
-                    <label for="ncon">Name: </label>
+                    <label for="ncon">Add Location: </label>
                     <input type="text" name="name" id="nloc">
                     <br>
-
-                    <?php 
-
-                        require('database.php');
-
-                        $getLocInfo = "SELECT * FROM location";
-                        $locations = $db->query($getLocInfo);
-
-                        foreach($locations as $location) {
-                            $id = $location['locationID'];
-                            $name = $location['name'];
-
-                            echo "<option value=$id>$name</option>";
-                        }
-                    ?>
-                    </fieldset>
-                    <input class="button" id="submit" type="submit" name="addlocation">Add Location</button>
+                    <input class="addbutton" id="submit" type="submit" name="addlocation"></button>
                 </form>
             </div>
+			<br>
+			<br> <!-- these breaks are here so the form doesn't hit the bottom of the page -->
+			<br>
+			
         </main>
     </body>
 </html>

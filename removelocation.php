@@ -2,7 +2,8 @@
 	require('database.php');
 						
 	$name=$_POST['name'];
-	$sql="INSERT INTO location (name) VALUES ('$name')";
+	$id=$_POST['locID'];
+	$sql="DELETE FROM location WHERE locationID =" . $id;
 
 	$row=$db->query($sql);	
 	header('Location: locations.php');
