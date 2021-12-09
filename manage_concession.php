@@ -24,11 +24,13 @@
             <?php 
                 $concessionID = $_POST['concessionID'];
 
-                require('database.php');
+                /*require('database.php');*/
+                require('databasePDO.php');
 
                 $getConInfo = "SELECT * FROM concessions WHERE concessionID = $concessionID";
                 $conces = $db->query($getConInfo);
-                $con = $conces->fetch_assoc();
+                $con = $conces->fetch();
+                /*$con = $conces->fetch_assoc();*/
 
                 $name = $con['concessionName'];
                 $opCost = $con['operationCost'];
@@ -37,7 +39,8 @@
 
                 $getLocInfo = "SELECT name FROM location WHERE locationID = $lid";
                 $location = $db->query($getLocInfo);
-                $lo = $location->fetch_assoc();
+                $lo = $location->fetch();
+                /*$lo = $location->fetch_assoc();*/
 
                 $l = $lo['name'];
 
@@ -46,7 +49,8 @@
 
                 $getEmpInfo = "SELECT employeeName FROM employees WHERE employeeID = $eid";
                 $employee = $db->query($getEmpInfo);
-                $em = $employee->fetch_assoc();
+                $em = $employee->fetch();
+                /*$em = $employee->fetch_assoc();*/
 
                 $e = $em['employeeName'];
 
@@ -83,7 +87,8 @@
                                 <label for=emp class=clabel>Current Employee: <span class=empname>$e</span> </label>
                                 <br>";
                                 
-                                if($nemployee->num_rows > 0) {
+                                if($nemployee->rowCount() > 0) {
+                                /*if($nemployee->num_rows > 0) {*/
                                     echo "<select name=aemp>";
                                     foreach($nemployee as $nemp) {
                                         $neid = $nemp['employeeID'];

@@ -35,7 +35,8 @@
 
                     <?php 
 
-                        require('database.php');
+                        require('databasePDO.php');
+                        /*require('database.php');*/
 
                         $getLocInfo = "SELECT * FROM location";
                         $locations = $db->query($getLocInfo);

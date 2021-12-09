@@ -1,5 +1,6 @@
 <?php
-require('database.php');
+/*require('database.php');*/
+require('databasePDO.php');
 
 
 echo "<table class=results>
@@ -18,7 +19,8 @@ $sql = "SELECT c.concessionID, c.concessionName, l.name, c.operationCost, e.empl
 $concession = $db->query($sql);
         
 
-if ($concession->num_rows > 0) {
+if ($concession->rowCount() > 0) {
+/*if ($concession->num_rows > 0) {*/
     foreach($concession as $con) {
         $id = $con['concessionID'];
         $name = $con['concessionName'];

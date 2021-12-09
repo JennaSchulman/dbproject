@@ -22,17 +22,7 @@
             </div>
         </header>
         <main>
-            <h1 class="start">Welcome Park Management. Click on any button above or below to manage the park!</h1>
-            <div class="button-flex">
-                <button type="button" onclick="location.href='tickets.php';">Manage Tickets</button>
-                <button type="button" onclick="location.href='locations.php';">Manage Locations</button>
-                <button type="button" onclick="location.href='ticketBooths.php';">Manage TicketBooths</button>
-                <button type="button" onclick="location.href='rides.php';">Manage Rides</button>
-                <button type="button" onclick="location.href='concessions.php';">Manage Concessions</button>
-                <button type="button" onclick="location.href='products.php';">Manage Products</button>
-                <button type="button" onclick="location.href='employees.php';">Manage Employees</button>
-                <button type="button" onclick="location.href='data.php';">View Data</button>
-            </div>
+        
         </main>
     </body>
 </html>

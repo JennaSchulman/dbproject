@@ -1,5 +1,6 @@
 <?php
-require('database.php');
+/*require('database.php');*/
+require('databasePDO.php');
 
 
 echo "<table class=results>
@@ -12,8 +13,8 @@ echo "<table class=results>
 $sql = "SELECT l.name, l.locationID FROM location l ORDER BY l.locationID";
 $locations = $db->query($sql);
         
-
-if ($locations->num_rows > 0) {
+if ($locations->rowCount() > 0) {
+/*if ($locations->num_rows > 0) {*/
     foreach($locations as $location) {
         $id = $location['locationID'];
         $name = $location['name'];
