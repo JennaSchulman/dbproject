@@ -1,5 +1,6 @@
 <?php
-	require('database.php');
+	require('databasePDO.php');
+	/*require('database.php');*/
 						
 	$name=$_POST['name'];
 	$id=$_POST['ID'];
