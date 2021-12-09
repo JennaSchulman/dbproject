@@ -22,13 +22,18 @@
             </div>
         </header>
         <main>
-            <h1 class="start">Products Management</h1>
-            
-            <div class="prodtable">
-                <?php include('productstable.php'); ?>
+            <h1 class="start">Add Product</h1>
+            <div class="addForm">
+                <form action="add_product.php" method="post">
+                    <label for="prodName"> Name: </label>
+                    <input type="text" name="prodName" required>
+                    <br>
+                    <label for="price">Price: </label>
+                    <input type="text" name="price" required>
+                    <br><br>
+                    <button type="submit">Add Product</button>
+                </form>
             </div>
-            <button type="button" class="addbutton" onclick="location.href='add_product_form.php';">Add Product</button>
         </main>
     </body>
 </html>
-

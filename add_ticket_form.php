@@ -40,7 +40,7 @@ require('databasePDO.php');
             <br>
 
             <br>
-            <button type="submit">Submit Changes</button>
+            <button type="submit">Add Ticket</button>
         </form>
       </div>
     </main>

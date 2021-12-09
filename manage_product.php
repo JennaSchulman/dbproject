@@ -22,13 +22,29 @@
             </div>
         </header>
         <main>
-            <h1 class="start">Products Management</h1>
-            
-            <div class="prodtable">
-                <?php include('productstable.php'); ?>
-            </div>
-            <button type="button" class="addbutton" onclick="location.href='add_product_form.php';">Add Product</button>
+            <?php
+                $productID = $_POST['productID'];
+
+                require('databasePDO.php');
+
+                $getProdInfo = "SELECT * FROM products WHERE productID = $productID";
+                $productData = $db->query($getProdInfo);
+                $prod = $productData->fetch();
+
+                $name = $prod['productName'];
+                $price = $prod['price'];
+
+                echo "<h1 class=start>Managing: $name</h1>
+                        <div class=manageForm>
+                            <form action=edit_product.php method=post>
+                                <input type=hidden value=$productID name=productID>
+                                <label for=price>Price: </label>
+                                <input type=text placeholder=$$price name=price>
+                                <br><br>
+                                <button type=submit>Submit Changes</button>
+                            </form>
+                        </div>";    
+            ?>
         </main>
     </body>
 </html>
-
