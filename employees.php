@@ -22,7 +22,28 @@
             </div>
         </header>
         <main>
-        
+            <h1 class="start">Employee Management</h1>
+
+			<div class="contable">
+            <?php include('employeetable.php');?>
+            </div>
+			<br>
+			<br>
+			 <div class="addForm">
+                <form action="addemployee.php" method="POST" novalidate>
+				<h3>Add New Employee</h3>
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" class="nemp"><br>
+					<label for="salary">Salary: </label>
+                    <input type="text" name="salary" class="nemp">
+					
+                    <br>
+                    <input class="addbutton" id="submit" type="submit" name="addemp"></button>
+                </form>
+            </div>
+			<br>
+			<br> <!-- these breaks are here so the form doesn't hit the bottom of the page -->
+			<br>
         </main>
     </body>
 </html>
