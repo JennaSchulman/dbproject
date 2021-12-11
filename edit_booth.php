@@ -17,6 +17,12 @@ if ($_POST['employee'] != "") {
   $statement->bindValue(':boothID', $_POST['boothID']);
   $statement->execute();
   $statement->closeCursor();
+  
+  $query = "UPDATE employees SET is_assigned = 1 WHERE employeeID = :employeeID";
+  $statement = $db->prepare($query);
+  $statement->bindValue(':employeeID', $_POST['employee']);
+  $statement->execute();
+  $statement->closeCursor();
 }
 
 header("Location: ticketBooths.php");

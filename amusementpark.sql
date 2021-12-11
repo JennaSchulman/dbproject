@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 06, 2021 at 01:54 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Host: localhost
+-- Generation Time: Dec 11, 2021 at 06:10 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -114,7 +114,8 @@ INSERT INTO `employees` (`employeeID`, `salary`, `employeeName`, `is_assigned`) 
 (35, 9, 'Draco Malfoy\r', 1),
 (36, 9, 'Rubeus Hagrid\r', 1),
 (37, 8, 'Severus Snape\r', 1),
-(38, 8, 'Minerva McGonagall', 1);
+(38, 8, 'Minerva McGonagall', 1),
+(40, 9, 'Karl Jacobs', 1);
 
 -- --------------------------------------------------------
 
@@ -624,10 +625,22 @@ INSERT INTO `rides` (`rideName`, `capacity`, `numTrains`, `heightRequirement`, `
 ('fountain of screams', 32, 8, 36, 0, 3, 12, 82.19, 0, 32),
 ('mirage', 24, 4, 48, 0, 5, 13, 112.33, 0, 28),
 ('2fort', 24, 4, 48, 0, 5, 14, 136.98, 0, 22),
-('space cowboy', 32, 4, 54, 0, 6, 15, 142.47, 0, 21),
+('space cowboy', 32, 4, 54, 0, 6, 15, 142.47, 0, 40),
 ('intergalactic planetary', 64, 8, 36, 0, 6, 16, 35.62, 0, 31),
 ('frosteez', 28, 4, 36, 0, 10, 17, 84.93, 0, 29),
 ('snowpeak ruins', 64, 8, 36, 0, 10, 18, 249.32, 0, 24);
+
+--
+-- Triggers `rides`
+--
+DELIMITER $$
+CREATE TRIGGER `updateEmp_deletedRide` AFTER DELETE ON `rides` FOR EACH ROW UPDATE employees e SET is_assigned=0 WHERE e.employeeID = OLD.employeeID
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `updateEmp_updatedRide` AFTER UPDATE ON `rides` FOR EACH ROW UPDATE employees e SET is_assigned=0 WHERE e.employeeID = OLD.employeeID
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -689,6 +702,26 @@ INSERT INTO `ticketbooths` (`boothID`, `location`, `employeeID`) VALUES
 (3, 1, 34),
 (4, 1, 21),
 (5, 1, 2);
+
+--
+-- Triggers `ticketbooths`
+--
+DELIMITER $$
+CREATE TRIGGER `updateEmp_deletedBooth` AFTER DELETE ON `ticketbooths` FOR EACH ROW UPDATE employees e SET is_assigned=0 WHERE e.employeeID = OLD.employeeID
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `updateEmp_deletedConcession` AFTER DELETE ON `ticketbooths` FOR EACH ROW UPDATE employees e SET is_assigned=0 WHERE e.employeeID = OLD.employeeID
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `updateEmp_updatedBooth` AFTER UPDATE ON `ticketbooths` FOR EACH ROW UPDATE employees e SET is_assigned=0 WHERE e.employeeID = OLD.employeeID
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `updateEmp_updatedConcession` AFTER UPDATE ON `ticketbooths` FOR EACH ROW UPDATE employees e SET is_assigned=0 WHERE e.employeeID = OLD.employeeID
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -797,7 +830,7 @@ ALTER TABLE `concessions`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `employeeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `employeeID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `location`
@@ -815,13 +848,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `rides`
 --
 ALTER TABLE `rides`
-  MODIFY `rideID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `rideID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `ticketbooths`
 --
 ALTER TABLE `ticketbooths`
-  MODIFY `boothID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `boothID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
