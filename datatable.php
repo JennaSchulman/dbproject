@@ -16,8 +16,10 @@ echo "<table class=results>
 //PDO requires statement prep for variables to protect against injection
 $sql = "SELECT * FROM profits WHERE date BETWEEN :start AND :end";
 $stmt = $db->prepare($sql);
-$startDate = $_POST["startDate"];
-$endDate = $_POST["endDate"];
+
+$startDate = isset($_POST["startDate"]) ? $_POST["startDate"] : "2021-08-21";
+$endDate = isset($_POST["endDate"]) ? $_POST["endDate"] : "2021-11-30";
+
 $stmt->bindValue(":start", $startDate, PDO::PARAM_STR);
 $stmt->bindValue(":end", $endDate, PDO::PARAM_STR);
 $stmt->execute();
