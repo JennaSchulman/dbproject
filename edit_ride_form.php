@@ -68,7 +68,7 @@ require('databasePDO.php');
         <form action="edit_ride.php" method="post">
             <input type="hidden" value="<?php echo $rideID; ?>" name="rideID">
             <label for="rideName" class="tlabel">Name:</label>
-            <input type="text" placeholder="<?php echo $rideName; ?>" name="rideName" size=30>
+            <input type="text" placeholder="<?php echo $rideName; ?>" name="rideName" id="ridename" size=30>
             <br>
 
             <label for="location" class="clabel">Current Location: <span class="locname"><?php echo $locationName; ?></span></label>

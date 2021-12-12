@@ -26,14 +26,15 @@ if ($employees->rowCount() > 0) {
 						<input type=hidden value=\"$id\" name=\"ID\" id=\"ID\"></input>
 						<input type=hidden value=\"employees\" name=\"tablename\"></input>
 						<input type=hidden value=\"employeeID\" name=\"constraint\"></input>
-						<input type=hidden value=\"employees.php\" name=\"previous\"> </input>
-						<input type='submit' class=tbuttond value='Delete'></input> 
+						<input type=hidden value=\"employees.php\" name=previous> </input>
+						<button type=submit class=tbuttond>Delete</button> 
 						</form> 
 					</td>
                     <td> $name </td>
 					<td> $salary </td>
-					<td><form action='manage_employee.php' method='POST'>
-						<input type='submit' class=tbuttonm value='Manage'></input>
+					<td><form action=manage_employee.php method=POST>
+						<input type=hidden value=$id name=concessionID>
+						<button type=submit class=tbuttonm>Manage</button>
 					</form></td>
                 </tr>";  
     }  

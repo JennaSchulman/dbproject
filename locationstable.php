@@ -25,7 +25,7 @@ if ($locations->rowCount() > 0) {
 						<input type=hidden value=\"location\" name=\"tablename\"></input>
 						<input type=hidden value=\"locationID\" name=\"constraint\"></input>
 						<input type=hidden value=\"locations.php\" name=\"previous\"> </input>
-						<input type='submit' class=tbuttond value='Delete'></input> 
+						<button type=submit class=tbuttond>Delete</button> 
 						</form> 
 					</td>
                     <td> $name </td>
