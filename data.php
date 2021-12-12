@@ -22,7 +22,31 @@
             </div>
         </header>
         <main>
-        
+
+            <h1 class="start">Profits Data</h1>
+
+            <div style="margin:auto; width:30%;padding-bottom:2em;">
+            <form action="" method="post">
+                
+                <label>Start date:</label>
+                <input type="date" name="startDate"
+                    value="2021-08-21"
+                    min="2021-08-21" max="2021-11-30">
+    
+                <label>End date:</label>
+                <input type="date" name="endDate"
+                    value="2021-11-30"
+                    min="2021-08-21" max="2021-11-30">
+
+                <input type="submit">
+    
+            </form>
+            </div>
+
+            <div class="prodtable">
+                <?php include('datatable.php'); ?>
+            </div>
+
         </main>
     </body>
 </html>
