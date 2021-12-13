@@ -1,13 +1,13 @@
 <?php
 require('databasePDO.php');
 
-echo "<table class=results>
+echo "<table class=results id=data>
         <tr>
             <th> Date </th>
             <th> Revenue </th>
-            <th> Tickets </th>
-            <th> Products </th>
-            <th> Operation </th>
+            <th> &nbsp Tickets &nbsp </th>
+            <th> &nbsp Products &nbsp </th>
+            <th> &nbsp Operation &nbsp </th>
             <th> Net Profit </th>
         </tr>
         ";
