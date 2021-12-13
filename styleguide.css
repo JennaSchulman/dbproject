@@ -136,7 +136,11 @@ button:hover {
 
 .tbuttony:hover {
     background-color: green;
-    color: #ffffc2;
+    color: white;
+}
+
+.tbuttonn:hover {
+    background-color: lightgray;
 }
 
 .addbutton {
