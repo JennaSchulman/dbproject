@@ -42,7 +42,7 @@ if ($concession->rowCount() > 0) {
                     <td> $opcost </td>
                     <td> $ename </td>
                     <td> 
-                        <form action=manage_concession.php method=post> 
+                        <form action=manage_concession.php method='POST'> 
                             <input type=hidden value=$id name=concessionID>
                             <button type=submit class=tbuttonm> Manage </button> 
                         </form> 
