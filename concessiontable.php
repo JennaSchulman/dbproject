@@ -9,7 +9,7 @@ echo "<table class=results>
             <th> Concession Name </th>
             <th> Location </th>
             <th> Total Products Sold</th>
-            <th> Operation Cost </th>
+            <th> &nbsp &nbsp Operation Cost </th>
             <th> Employee </th>
             <th> Manage </th>
         </tr>

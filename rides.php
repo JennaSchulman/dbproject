@@ -36,12 +36,12 @@ require('databasePDO.php');
                 <th> Ride Name </th>
                 <th> Location </th>
                 <th> Capacity </th>
-                <th> Number of Trains </th>
-                <th> Height Requirement </th>
-                <th> Operation Cost </th>
+                <th> &nbsp &nbsp Number of Trains </th>
+                <th> &nbsp &nbsp Height Requirement </th>
+                <th> &nbsp &nbsp Operation Cost </th>
                 <th> Employee </th>
                 <th> Total Riders </th>
-                <th> Maintenance </th>
+                <th> &nbsp &nbsp Maintenance </th>
                 <th> Manage </th>
             </tr>
         <?php
