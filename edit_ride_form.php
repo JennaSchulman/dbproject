@@ -87,8 +87,8 @@ require('databasePDO.php');
             <label for="numTrains" class="tlabel">Number of Trains:</label>
             <input type="number" placeholder="<?php echo $numTrains; ?>" name="numTrains">
             <br>
-            <label for="heightReq" class="tlabel">Height Requirement:</label>
-            <input type="number" placeholder="<?php echo $heightRequirement; ?> in" name="heightReq">
+            <label for="heightRequirement" class="tlabel">Height Requirement:</label>
+            <input type="number" placeholder="<?php echo $heightRequirement; ?> in" name="heightRequirement">
             <br>
             <label for="operationCost" class="tlabel">Operation Cost:</label>
             <input type="text" placeholder="$<?php echo $operationCost; ?>" name="operationCost">

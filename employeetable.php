@@ -7,11 +7,12 @@ echo "<table class=results>
             <th> Remove </th>
 			<th> Name </th>
 			<th> Salary </th>
+			<th> &nbsp&nbsp&nbsp&nbspIs Assigned </th>
 			<th> Manage </th>
         </tr>
         ";
 
-$sql = "SELECT e.employeeID, e.salary, e.employeeName FROM employees e ORDER BY e.employeeID";
+$sql = "SELECT * FROM employees e ORDER BY e.employeeID";
 $employees = $db->query($sql);
         
 
@@ -20,6 +21,7 @@ if ($employees->rowCount() > 0) {
         $id = $emp['employeeID'];
         $name = $emp['employeeName'];
 		$salary = $emp['salary'];
+		$assigned = $emp['is_assigned'];
 
         echo "<tr>
                     <td><form action=\"remove.php\" method=\"POST\">
@@ -32,8 +34,9 @@ if ($employees->rowCount() > 0) {
 					</td>
                     <td> $name </td>
 					<td> $salary </td>
+					<td> $assigned </td> 
 					<td><form action=manage_employee.php method=POST>
-						<input type=hidden value=$id name=concessionID>
+						<input type=hidden value=$id name=empID>
 						<button type=submit class=tbuttonm>Manage</button>
 					</form></td>
                 </tr>";  

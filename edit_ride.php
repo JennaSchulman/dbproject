@@ -49,7 +49,7 @@ if ($_POST['heightRequirement'] != "") {
 }
 
 if ($_POST['operationCost'] != "") {
-  $query = "UPDATE users SET operationCost = :operationCost WHERE userID = :userID";
+  $query = "UPDATE rides SET operationCost = :operationCost WHERE rideID = :rideID";
   $statement = $db->prepare($query);
   $statement->bindValue(':operationCost', $_POST['operationCost']);
   $statement->bindValue(':rideID', $_POST['rideID']);

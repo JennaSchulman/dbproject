@@ -1,5 +1,5 @@
 <?php
-	require('database.php');
+	require('databasePDO.php');
 						
 	$name=$_POST['name'];
 	$salary=$_POST['salary'];
