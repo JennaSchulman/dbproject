@@ -30,7 +30,7 @@
             <div class="contable">
                 <?php include('concessiontable.php');?>
             </div>
-            <button type="button" class="addbutton" onclick="location.href='addconcession.php';">Add Concession</button>
+            <button type="button" class="addbutton" onclick="location.href='add_concession_form.php';">Add Concession</button>
         </main>
     </body>
 </html>

@@ -30,13 +30,23 @@ if ($concession->rowCount() > 0) {
         $psold = $con['SUM(s.numSold)'];
 
         echo "<tr>
-                    <td><form action=remove_concession.php method=post> <button type=submit class=tbuttond> Delete </button> </form> </td>
+                    <td>
+                        <form action=remove_concession.php method=post> 
+                            <input type=hidden value=$id name=concessionID>
+                            <button type=submit class=tbuttond> Delete </button> 
+                        </form> 
+                    </td>
                     <td> $name </td>
                     <td> $location </td>
                     <td>$psold</td>
                     <td> $opcost </td>
                     <td> $ename </td>
-                    <td> <form action=manage_concession.php method=post> <input type=hidden value=$id name=concessionID><button type=submit class=tbuttonm> Manage </button> </form> </td>
+                    <td> 
+                        <form action=manage_concession.php method=post> 
+                            <input type=hidden value=$id name=concessionID>
+                            <button type=submit class=tbuttonm> Manage </button> 
+                        </form> 
+                    </td>
                 </tr>";    
     }
     echo "</table>";

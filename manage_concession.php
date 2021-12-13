@@ -66,7 +66,8 @@
 
                 echo "<h1 class=start>Managing: $name</h1>
                         <div class=manageForm>
-                            <form>
+                            <form action=edit_concession.php method=post>
+                                <input type=hidden name=id value=$concessionID>
                                 <label for=cname class=tlabel>Name:</label>
                                 <input type=text placeholder='$name' name=cname size=30>
                                 <br>
@@ -118,10 +119,23 @@
                                         $prodid = $prod['productID'];
 
                                         echo "<tr>
-                                                <td><form action=remove_prodfromcon.php method=post> <button type=submit class=tbuttond> Delete </button> </form> </td>
+                                                <td>
+                                                    <form action=remove_prodfromcon.php method=post>
+                                                        <input type=hidden name=pidr value=$prodid>
+                                                        <input type=hidden name=cidr value=$concessionID>
+                                                        <button type=submit class=tbuttond> Delete </button> 
+                                                    </form> 
+                                                </td>
                                                 <td>$p</td>
                                                 <td> $sold </td>
-                                                <td> <form method=post> <input type=hidden value=$prodid><input type=text size=7> </form> </td>
+                                                <td> 
+                                                    <form action=addprodamt.php method=post>
+                                                        <input type=hidden name=pida value=$prodid>
+                                                        <input type=hidden name=cida value=$concessionID>
+                                                        <input type=text name=amt size=7>
+                                                        <button type=submit>Add</button> 
+                                                    </form> 
+                                                </td>
                                        </tr>";  
                                     }
 
@@ -133,7 +147,7 @@
                                         $pid = $nprod['productID'];
                                         $npname = $nprod['productName'];
 
-                                        echo "<input type=checkbox name=addprod value=$pid id='$pid addp'>
+                                        echo "<input type=checkbox name=addprod[] value=$pid id='$pid addp'>
                                             <label for='$pid addp'>$npname</label>
                                             <br>";
                                     }

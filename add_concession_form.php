@@ -24,7 +24,7 @@
         <main>
             <h1 class="start">Add Concession</h1>
             <div class="addForm">
-                <form>
+                <form action="add_concession.php" method="post">
                     <label for="ncon">Name: </label>
                     <input type="text" name="name" id="ncon">
                     <br>
@@ -49,13 +49,27 @@
                             echo "<option value=$id>$name</option>";
                         }
 
-                
 
                         echo "</select>
                         <br>
-                        <label for=empcon>Employee:</label>
-                        <select name=emp id=empcon></select>
-                        <br>
+                        <label for=empcon>Employee:</label>";
+
+                        $getNonEmpInfo = "SELECT employeeName, employeeID FROM employees WHERE is_assigned = 0";
+                        $nemployee = $db->query($getNonEmpInfo);
+
+                        if($nemployee->rowCount() > 0) {
+                            echo "<select name=emp>";
+                            foreach($nemployee as $nemp) {
+                                $neid = $nemp['employeeID'];
+                                $nempn = $nemp['employeeName'];
+
+                                echo "<option value=$neid>$nempn</option>";
+                            }
+                            echo "</select>";
+                        } else {
+                            echo "<p>0 employees not assigned<p>";
+                        }
+                        echo "<br>
                         <fieldset>
                             <legend>Select Products to Add:</legend>";
 
@@ -66,7 +80,7 @@
                                 $pid = $product['productID'];
                                 $pname = $product['productName'];
 
-                                echo "<input type=checkbox value=$pid id='$pid newp'>
+                                echo "<input type=checkbox name=products[] value=$pid id='$pid newp'>
                                     <label for='$pid newp'>$pname</label>
                                     <br>";
                             }
