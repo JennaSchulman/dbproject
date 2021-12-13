@@ -15,14 +15,14 @@ echo "<table class=results>
         </tr>
         ";
 
-$sql = "SELECT c.concessionID, c.concessionName, l.name, c.operationCost, e.employeeName, SUM(s.numSold) FROM concessions c, employees e, location l, productamountsold s WHERE c.employeeID = e.employeeID AND c.location = l.locationID AND c.concessionID = s.concessionID GROUP BY c.concessionName ORDER BY c.concessionID";
+$sql = "SELECT c.concessionID as conID, c.concessionName, l.name, c.operationCost, e.employeeName, SUM(s.numSold) FROM concessions c, employees e, location l, productamountsold s WHERE c.employeeID = e.employeeID AND c.location = l.locationID AND c.concessionID = s.concessionID GROUP BY c.concessionName ORDER BY c.concessionID";
 $concession = $db->query($sql);
         
 
 if ($concession->rowCount() > 0) {
 /*if ($concession->num_rows > 0) {*/
     foreach($concession as $con) {
-        $id = $con['concessionID'];
+        $id = $con['conID'];
         $name = $con['concessionName'];
         $location = $con['name'];
         $opcost = $con['operationCost'];
