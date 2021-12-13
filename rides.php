@@ -96,7 +96,7 @@ require('databasePDO.php');
                 <button type="submit" class="tbuttony">Request</button>
               <?php } else { ?>
                 <input type="hidden" value="1" name="reqMaintenance">
-                <button type="submit" class="tbuttonn">Request</button>
+                <button type="submit">Request</button>
               <?php } ?>
               </form>
             </td>

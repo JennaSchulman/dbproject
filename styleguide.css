@@ -129,6 +129,16 @@ button:hover {
     color: #ffffc2;
 }
 
+.tbuttony {
+    background-color: mediumseagreen;
+    color: white;
+}
+
+.tbuttony:hover {
+    background-color: green;
+    color: #ffffc2;
+}
+
 .addbutton {
     border-radius: 5px;
     width: 200px;
@@ -179,3 +189,7 @@ button:hover {
     margin-bottom: 20px;
 }
 
+#data td {
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
