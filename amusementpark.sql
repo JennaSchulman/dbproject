@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 11, 2021 at 06:10 AM
+-- Generation Time: Dec 13, 2021 at 11:22 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.9
 
@@ -59,6 +59,18 @@ INSERT INTO `concessions` (`location`, `concessionName`, `concessionID`, `operat
 (2, 'the gravy boat', 17, 1750, 13),
 (1, 'the great entree', 18, 2090, 26);
 
+--
+-- Triggers `concessions`
+--
+DELIMITER $$
+CREATE TRIGGER `updateEmp_deletedConcession` AFTER DELETE ON `concessions` FOR EACH ROW UPDATE employees e SET is_assigned=0 WHERE e.employeeID = OLD.employeeID
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `updateEmp_updatedConcession` AFTER UPDATE ON `concessions` FOR EACH ROW UPDATE employees e SET is_assigned=0 WHERE e.employeeID = OLD.employeeID
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -79,7 +91,7 @@ CREATE TABLE `employees` (
 INSERT INTO `employees` (`employeeID`, `salary`, `employeeName`, `is_assigned`) VALUES
 (1, 9, 'John Smith\r', 1),
 (2, 7, 'James Robert\r', 1),
-(3, 11, 'Mary Bright\r', 1),
+(3, 11, 'Mary Bright\r', 0),
 (4, 9, 'Joseph Thomas\r', 1),
 (5, 9, 'Karen Richard\r', 1),
 (6, 8, 'Daniel Matthews\r', 1),
@@ -99,7 +111,7 @@ INSERT INTO `employees` (`employeeID`, `salary`, `employeeName`, `is_assigned`) 
 (20, 11, 'Hermione Granger\r', 1),
 (21, 7, 'Ron Weasley\r', 1),
 (22, 11, 'Fred Weasley\r', 1),
-(23, 10, 'George Weasley\r', 1),
+(23, 10, 'George Weasley\r', 0),
 (24, 9, 'Percy Weasley\r', 1),
 (25, 8, 'Ginny Weasley\r', 1),
 (26, 8, 'Luna Lovegood\r', 1),
@@ -711,15 +723,7 @@ CREATE TRIGGER `updateEmp_deletedBooth` AFTER DELETE ON `ticketbooths` FOR EACH 
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `updateEmp_deletedConcession` AFTER DELETE ON `ticketbooths` FOR EACH ROW UPDATE employees e SET is_assigned=0 WHERE e.employeeID = OLD.employeeID
-$$
-DELIMITER ;
-DELIMITER $$
 CREATE TRIGGER `updateEmp_updatedBooth` AFTER UPDATE ON `ticketbooths` FOR EACH ROW UPDATE employees e SET is_assigned=0 WHERE e.employeeID = OLD.employeeID
-$$
-DELIMITER ;
-DELIMITER $$
-CREATE TRIGGER `updateEmp_updatedConcession` AFTER UPDATE ON `ticketbooths` FOR EACH ROW UPDATE employees e SET is_assigned=0 WHERE e.employeeID = OLD.employeeID
 $$
 DELIMITER ;
 
