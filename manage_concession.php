@@ -23,7 +23,9 @@
         </header>
         <main>
             <?php 
-                $concessionID = $_POST['concessionID'];
+                $concessionID = $_POST['conID'];
+
+                echo "<p>$concessionID<p>";
 
                 /*require('database.php');*/
                 require('databasePDO.php');

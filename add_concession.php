@@ -28,7 +28,7 @@ $statement->closeCursor();
 $getIDquery = "SELECT max(concessionID) FROM concessions";
 $getID = $db->query($getIDquery);
 $get = $getID->fetch();
-$ID = $get['concessionID'];
+$ID = $get['max(concessionID)'];
 
 if (!empty($products)) {
     foreach ($products as $prod) {
