@@ -23,6 +23,12 @@ if ($employees->rowCount() > 0) {
 		$salary = $emp['salary'];
 		$assigned = $emp['is_assigned'];
 
+		if ($assigned == 1) {
+			$assigned = "Yes";
+		} else {
+			$assigned = "No";
+		} 
+		
         echo "<tr>
                     <td><form action=\"remove.php\" method=\"POST\">
 						<input type=hidden value=\"$id\" name=\"ID\" id=\"ID\"></input>

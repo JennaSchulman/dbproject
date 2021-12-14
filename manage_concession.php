@@ -37,7 +37,7 @@
                 /*require('database.php');*/
                 require('databasePDO.php');
 
-                $getConInfo = "SELECT * FROM concessions WHERE concessionID = $concessionID";
+                $getConInfo = "SELECT * FROM concessions c WHERE c.concessionID = $concessionID";
                 $conces = $db->query($getConInfo);
                 $con = $conces->fetch();
                 /*$con = $conces->fetch_assoc();*/

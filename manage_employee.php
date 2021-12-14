@@ -34,6 +34,13 @@
                 $name = $emp['employeeName'];
                 $salary = $emp['salary'];
 				$assigned = $emp['is_assigned'];
+				
+				if ($assigned == 1) {
+					$assigned = "Yes";
+				} else {
+					$assigned = "No";
+				} 
+				
 
                 echo "<h1 class=start>Managing: $name</h1>
                         <div class=manageForm>
@@ -42,7 +49,7 @@
                                 <label for=price>Salary: </label>
                                 <input type=text placeholder=$$salary name=salary>
 								<br><br>
-								<label for=setAssigned> Change Assignment Status: </label>
+								<label for=setAssigned> Is this employee assigned? (Y/N): </label>
 								<input type=text placeholder=$assigned name=setAssigned>
                                 <br><br>
                                 <button type=submit>Submit Changes</button>
