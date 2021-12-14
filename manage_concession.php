@@ -22,8 +22,15 @@
             </div>
         </header>
         <main>
-            <?php 
-                $concessionID = $_POST['conID'];
+            <?php
+            
+                if(isset($_SESSION['cida'])) {
+                    $concessionID = $_SESSION['cida'];
+                } elseif (isset($_SESSION['cidr'])) {
+                    $concessionID = $_SESSION['cidr'];
+                } else {
+                    $concessionID = $_POST['conID'];
+                }
 
                 echo "<p>$concessionID<p>";
 
@@ -159,6 +166,7 @@
                                 <button type=submit>Submit Changes</button>
                             </form>
                         </div>";
+                        session_destroy();
             ?>
         </main>
     </body>

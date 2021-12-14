@@ -32,7 +32,7 @@ if ($concession->rowCount() > 0) {
         echo "<tr>
                     <td>
                         <form action=remove_concession.php method=post> 
-                            <input type=hidden value=$id name=concessionID>
+                            <input type=hidden value=$id name=id>
                             <button type=submit class=tbuttond> Delete </button> 
                         </form> 
                     </td>
@@ -43,7 +43,7 @@ if ($concession->rowCount() > 0) {
                     <td> $ename </td>
                     <td> 
                         <form action=manage_concession.php method=post> 
-                            <input type=hidden value=$id name=concessionID>
+                            <input type=hidden value=$id name=conID>
                             <button type=submit class=tbuttonm> Manage </button> 
                         </form> 
                     </td>
