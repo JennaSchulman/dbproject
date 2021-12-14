@@ -1,6 +1,6 @@
 <?php
 require('databasePDO.php');
-    $id = $_REQUEST['conID'];
+    $id = $_REQUEST['id'];
 
     $query = "DELETE FROM productamountsold WHERE concessionID = :concessionID";
 

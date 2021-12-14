@@ -4,6 +4,10 @@ require('databasePDO.php');
 $concessionID = $_REQUEST['cidr'];
 $productID = $_REQUEST['pidr'];
 
+if(!isset($_SESSION['cida']) && !isset($_SESSION['cidr'])) {
+    $_SESSION['cidr'] = $concessionID;
+}
+
 $query = "DELETE FROM productamountsold WHERE concessionID = :concessionID AND productID = :productID";
 
 $statement = $db->prepare($query);
