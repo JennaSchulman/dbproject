@@ -49,9 +49,6 @@
                                 <label for=price>Salary: </label>
                                 <input type=text placeholder=$$salary name=salary>
 								<br><br>
-								<label for=setAssigned> Is this employee assigned? (Y/N): </label>
-								<input type=text placeholder=$assigned name=setAssigned>
-                                <br><br>
                                 <button type=submit>Submit Changes</button>
 								
                             </form>
