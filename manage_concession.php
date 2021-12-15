@@ -33,15 +33,12 @@
                     $concessionID = $_POST['conID'];
                 }
 
-                echo "<p>$concessionID<p>";
 
-                /*require('database.php');*/
                 require('databasePDO.php');
 
                 $getConInfo = "SELECT * FROM concessions c WHERE c.concessionID = $concessionID";
                 $conces = $db->query($getConInfo);
                 $con = $conces->fetch();
-                /*$con = $conces->fetch_assoc();*/
 
                 $name = $con['concessionName'];
                 $opCost = $con['operationCost'];
@@ -51,7 +48,6 @@
                 $getLocInfo = "SELECT name FROM location WHERE locationID = $lid";
                 $location = $db->query($getLocInfo);
                 $lo = $location->fetch();
-                /*$lo = $location->fetch_assoc();*/
 
                 $l = $lo['name'];
 
@@ -61,7 +57,6 @@
                 $getEmpInfo = "SELECT employeeName FROM employees WHERE employeeID = $eid";
                 $employee = $db->query($getEmpInfo);
                 $em = $employee->fetch();
-                /*$em = $employee->fetch_assoc();*/
 
                 $e = $em['employeeName'];
 
@@ -100,7 +95,6 @@
                                 <br>";
                                 
                                 if($nemployee->rowCount() > 0) {
-                                /*if($nemployee->num_rows > 0) {*/
                                     echo "<select name=aemp>";
                                     foreach($nemployee as $nemp) {
                                         $neid = $nemp['employeeID'];
