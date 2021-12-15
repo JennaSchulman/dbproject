@@ -59,9 +59,9 @@ foreach($profits as $prof) {
 }
 echo "</table>";
 
-$sum = number_format($sum,4,".",",");
+$sum = number_format($sum,2,".",",");
 echo "<div style=\"margin:auto; width:30%;padding-bottom:2em;padding-top:.5em;\">
-        <label>Sum: $$sum</label>
+        <label>Total profits for the selected time frame: $$sum</label>
      </div>";
 
 
