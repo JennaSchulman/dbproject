@@ -1,5 +1,4 @@
 <?php
-/*require('database.php');*/
 require('databasePDO.php');
 
 
@@ -20,7 +19,6 @@ $concession = $db->query($sql);
         
 
 if ($concession->rowCount() > 0) {
-/*if ($concession->num_rows > 0) {*/
     foreach($concession as $con) {
         $id = $con['conID'];
         $name = $con['concessionName'];
