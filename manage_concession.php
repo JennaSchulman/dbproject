@@ -23,7 +23,8 @@
         </header>
         <main>
             <?php
-            
+                session_start();
+                
                 if(isset($_SESSION['cida'])) {
                     $concessionID = $_SESSION['cida'];
                 } elseif (isset($_SESSION['cidr'])) {

@@ -4,6 +4,8 @@ require('databasePDO.php');
 $concessionID = $_REQUEST['cidr'];
 $productID = $_REQUEST['pidr'];
 
+session_start();
+
 if(!isset($_SESSION['cida']) && !isset($_SESSION['cidr'])) {
     $_SESSION['cidr'] = $concessionID;
 }

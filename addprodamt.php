@@ -5,6 +5,8 @@ $concessionID = $_REQUEST['cida'];
 $productID = $_REQUEST['pida'];
 $amt = $_REQUEST['amt'];
 
+session_start();
+
 if(!isset($_SESSION['cida']) && !isset($_SESSION['cidr'])) {
 $_SESSION['cida'] = $concessionID;
 }
